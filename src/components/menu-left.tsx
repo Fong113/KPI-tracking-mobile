@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { Button, Drawer } from 'antd';
-import { AntAnchor } from 'antd/es/anchor/Anchor';
+import {  Drawer } from 'antd';
 import { SettingOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 type Props = {

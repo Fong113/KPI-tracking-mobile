@@ -1,5 +1,5 @@
 import HomePage from "@/pages/HomePage";
-import { Route, Routes, useLocation, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import MainLayout from "@/components/layout/MainLayout";
 import ReportPage from "@/pages/ReportPage";
 import TodoPage from "@/pages/TodoPage";

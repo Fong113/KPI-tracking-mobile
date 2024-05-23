@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
 import { Badge, TabBar } from 'antd-mobile'
 import {
   AppOutline,
-  MessageOutline,
-  MessageFill,
   UnorderedListOutline,
   UserOutline,
   PieOutline
@@ -39,7 +36,7 @@ export default () => {
   ]
   const navigate = useNavigate();
 
-  const [activeKey, setActiveKey] = useState('home')
+  // const [activeKey, setActiveKey] = useState('home')
 
   const location = useLocation()
   console.log(location);
