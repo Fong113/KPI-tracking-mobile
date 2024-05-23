@@ -1,0 +1,13 @@
+.ant-picker-input{
+  input::placeholder {
+    color: #1d2D35 !important;
+  }
+}
+
+.ant-select-selector{
+  border: 1px solid rgba(0, 0, 0, 0.40) !important;
+}
+
+.ant-select-selection-search input::placeholder{
+  color: #1d2D35 !important;
+}
