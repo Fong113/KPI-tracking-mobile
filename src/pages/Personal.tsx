@@ -94,7 +94,7 @@ export default function Profile({}: Props) {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <div className="flex flex-col gap-[39px]">
           <div className="flex flex-row gap-[27px] mt-[20px]">
             <div onClick={handleBack}>
@@ -105,16 +105,16 @@ export default function Profile({}: Props) {
             </p>
           </div>
           <div className="content">
-            <div className="header flex flex-row border-b-2 border-solid border-[#82ccf1]">
+            <div className="header flex flex-1 justify-around flex-row border-b-2 border-solid border-[#82ccf1]">
               <div
                 onClick={handleOp1}
-                className={`text-[20px] flex justify-center ${
+                className={`text-xl flex justify-center ${
                   selected === "op1"
                     ? "text-[#1D2D35] border-b-4 border-solid border-[#307ba7]"
                     : ""
                 }`}
               >
-                Thông tin tài khoản
+                Thông tin 
               </div>
               <div
                 onClick={handleOp2}
@@ -124,14 +124,14 @@ export default function Profile({}: Props) {
                     : ""
                 }`}
               >
-                Những tài khoản đã liên kết
+                Liên kết
               </div>
             </div>
             <div>
               {selected === "op1" ? (
-                <div className="flex flex-col items-start">
-                  <div className="avatar ml-[55px] flex flex-col w-[200px] justify-center items-center">
-                    <div className="mt-[62px]">
+                <div className="flex flex-col items-start justify-center ml-2">
+                  <div className="avatar flex flex-col w-[200px] justify-center items-center">
+                    <div className="flex justify-center">
                       <img src="/avt.png" alt="avatar nè" />
                     </div>
                     <div>
@@ -165,17 +165,17 @@ export default function Profile({}: Props) {
                       <InputProfile label="Thành phố" defaultValue="Hà Nội" />
                     </div>
                     <div className="flex align-center justify-around">
-                      <Button
+                      {/* <Button
                         onClick={handleCancel}
                         variant="destructive"
-                        className="text-white"
+                        className="text-white w-38"
                       >
                         Hủy
-                      </Button>
+                      </Button> */}
                       <Button
                         onClick={handleSubmit}
                         variant="submit"
-                        className="text-white"
+                        className="text-white w-40"
                       >
                         Lưu thay đổi
                       </Button>
@@ -184,8 +184,8 @@ export default function Profile({}: Props) {
                 </div>
               ) : (
                 <div className="flex flex-col justify-between h-[55vh] mt-[47px]">
-                  <div className="flex flex-col w-[1049px] h-[190px] rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
-                    <div className="ml-[30px] mt-[18px] text-3xl text-left text-[#1d2d35]">
+                  <div className="flex flex-col h-[190px] rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
+                    <div className="ml-[30px] mt-[18px] text-xl text-left text-[#1d2d35]">
                       Google
                     </div>
                     <div className="ml-[30px] text-[24px]">
@@ -196,8 +196,7 @@ export default function Profile({}: Props) {
                       đã được liên kết với Tracking KPI
                     </div>
                     <div
-                      className="ml-[30px] mt-[8px] w-[339px] bg-[#ff4d4f] rounded-[10px] h-10 text-2xl text-center text-white flex items-center justify-center"
-                      style={{ boxShadow: "0px 4px 4px 0 rgba(0,0,0,0.25)" }}
+                      className="ml-[30px] mt-[8px]  bg-[#ff4d4f] rounded-[10px] h-10 text-2xl text-center text-white flex items-center justify-center"
                     >
                       Hủy liên kết tài khoản này
                     </div>
@@ -205,7 +204,7 @@ export default function Profile({}: Props) {
                   <Button
                     onClick={handleLink}
                     variant="submit"
-                    className="text-white self-end text-[28px] h-[54px] font-medium gap-2.5 p-2.5 w-[414px]"
+                    className="text-white self-end text-2xl font-medium w-70"
                   >
                     Liên kết các tài khoản khác
                   </Button>

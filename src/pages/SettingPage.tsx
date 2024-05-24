@@ -91,7 +91,7 @@ export default function SettingPage({ }: Props) {
         </div>
       </div>
       <div className="flex justify-around mt-10 mb-6">
-        <Button variant="destructive" onClick={handleReset} className="text-white w-38 text-xl bg-red-500">
+        <Button variant="destructive" onClick={handleReset} className="text-white w-38 text-xl">
           Đặt lại mặc định
         </Button>
         <Button variant="submit" onClick={handleSubmit} className="text-white w-40 text-xl bg-blue-500">
