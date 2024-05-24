@@ -1,3 +1,4 @@
+import TreeIcon from '@/assets/icons/sidebar/tree';
 import { Badge, TabBar } from 'antd-mobile'
 import {
   AppOutline,
@@ -33,6 +34,11 @@ export default () => {
       title: 'Cá nhân',
       icon: <UserOutline />,
     },
+    {
+      key: '/tree',
+      title: 'Cây',
+      icon: <TreeIcon width="26" height="24"/>
+    }
   ]
   const navigate = useNavigate();
 
