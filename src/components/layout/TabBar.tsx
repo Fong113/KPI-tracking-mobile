@@ -56,7 +56,7 @@ export default () => {
 
   return (
     <>
-      <div>
+      <div className=''>
         <TabBar activeKey={location.pathname} onChange={handleChangeBar}>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
