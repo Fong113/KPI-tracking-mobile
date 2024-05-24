@@ -9,6 +9,7 @@ import { Drawer, Modal } from 'antd';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [bell, setBell] = useState(false);
+
   const handleMenuLeft = () => {
     setOpen(true)
   }
@@ -21,21 +22,15 @@ export default function Header() {
         <MenuOutlined onClick={handleMenuLeft} className='text-black' size={40} />
         <div onClick={handleBell} className='relative'>
           <BellIcon width='20' height='30' />
-          {bell &&
-            (
-              <div className='absolute w-2/3 right-0 flex flex-col'>
-                <img src="report1" alt="" />
-                <img src="report2" alt="" />
-              </div>
-            )
-          }
-          <Drawer title="Menu-left" placement='right' width={'40vh'} closable={false} open={open}>
-            <div className='flex flex-col gap-4'>
+          <Drawer title="Thông báo" placement='right' width={'40vh'} closable={false} open={bell}>
+            <div className='flex flex-col'>
+              <img src="/report1.png" alt="" />
+              <img src="/report2.png" alt="" />
             </div>
           </Drawer>
         </div>
+        <MenuLeft open={open} setOpen={setOpen} />
       </div>
-      <MenuLeft open={open} setOpen={setOpen} />
     </div>
   )
 }

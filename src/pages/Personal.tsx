@@ -94,13 +94,10 @@ export default function Profile({}: Props) {
 
   return (
     <>
-      <div className="flex flex-col ">
+      <div className="flex flex-col m-w-[100%] ">
         <div className="flex flex-col gap-[39px]">
           <div className="flex flex-row gap-[27px] mt-[20px]">
-            <div onClick={handleBack}>
-              <BackIcon />
-            </div>
-            <p className="text-blue-500 text-2xl font-semibold">
+            <p className="text-blue-500 ml-5 text-2xl font-semibold">
               Thiết lập tài khoản
             </p>
           </div>
@@ -130,9 +127,9 @@ export default function Profile({}: Props) {
             <div>
               {selected === "op1" ? (
                 <div className="flex flex-col items-start justify-center ml-2">
-                  <div className="avatar flex flex-col w-[200px] justify-center items-center">
-                    <div className="flex justify-center">
-                      <img src="/avt.png" alt="avatar nè" />
+                  <div className="avatar  mx-auto flex flex-col  justify-center items-center">
+                    <div className="flex justify-center ">
+                      <img src="/avt.png" className="w-[200px] " alt="avatar nè" />
                     </div>
                     <div>
                       <div
@@ -144,7 +141,7 @@ export default function Profile({}: Props) {
                     </div>
                   </div>
                   <div className="info flex flex-col gap-[31px]">
-                    <div className="flex flex-col gap-[70px] mt-[50px]">
+                    <div className="flex flex-col gap-[50px] mt-[30px]">
                       <InputProfile
                         label="Email"
                         defaultValue="test@gmail.com"
@@ -160,7 +157,7 @@ export default function Profile({}: Props) {
                         defaultValue="60"
                       />
                     </div>
-                    <div className="flex flex-col gap-[70px]">
+                    <div className="flex flex-col gap-[40px]">
                       <InputProfile label="Quốc gia" defaultValue="Việt Nam" />
                       <InputProfile label="Thành phố" defaultValue="Hà Nội" />
                     </div>
@@ -183,12 +180,12 @@ export default function Profile({}: Props) {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col justify-between h-[55vh] mt-[47px]">
-                  <div className="flex flex-col h-[190px] rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
-                    <div className="ml-[30px] mt-[18px] text-xl text-left text-[#1d2d35]">
+                <div className="flex p-3 flex-col justify-between h-[55vh] mt-[47px]">
+                  <div className="flex flex-col p-5 rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
+                    <div className=" mt-[18px] text-xl text-left text-[#1d2d35]">
                       Google
                     </div>
-                    <div className="ml-[30px] text-[24px]">
+                    <div className=" text-xl">
                       Tài khoản của bạn{" "}
                       <p className="inline text-[#fb4949]">
                         nguyenvana@gmail.com
@@ -196,7 +193,7 @@ export default function Profile({}: Props) {
                       đã được liên kết với Tracking KPI
                     </div>
                     <div
-                      className="ml-[30px] mt-[8px]  bg-[#ff4d4f] rounded-[10px] h-10 text-2xl text-center text-white flex items-center justify-center"
+                      className=" my-[8px]  bg-[#ff4d4f] rounded-[10px] h-10 text-xl text-center text-white flex items-center justify-center"
                     >
                       Hủy liên kết tài khoản này
                     </div>
@@ -218,7 +215,7 @@ export default function Profile({}: Props) {
                               onClick={handleBackPopup}
                               src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3cdb4f738951056cd82ceb92f181ffc7a691831fe00aab54da939ee58d9d52?apiKey=f19a917c094b4f6fa8172f34eb76d09c&"
                               alt="Account Selection Icon"
-                              className="shrink-0 mr-2.5 -ml-0.5 aspect-[1.11] w-[39px]"
+                              className="shrink-0 mr-2.5 -ml-0.5 aspect-[1.11] w-[20px]"
                             />
                             <div className="flex-auto mt-3 ml-2">
                               Chọn tài khoản

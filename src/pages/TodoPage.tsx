@@ -34,32 +34,32 @@ export default function TodoPage() {
           status="1"
         />
         <TaskItem
-          name="UX - UI"
+          name="Học từ vựng..."
           date="24/5"
           status="1"
         />
         <TaskItem
-          name="UX - UI"
+          name="Làm bài tập ... "
           date="24/5"
           status="2"
         />
         <TaskItem
-          name="UX - UI"
+          name="Chuẩn bị ..."
           date="24/5"
           status="1"
         />
         <TaskItem
-          name="UX - UI"
+          name="Học ngữ pháp ..."
           date="24/5"
           status="1"
         />
         <TaskItem
-          name="UX - UI"
+          name="Code giao diện.."
           date="24/5"
           status="2"
         />
         <TaskItem
-          name="UX - UI"
+          name="Soạn script.."
           date="24/5"
           status="1"
         />
