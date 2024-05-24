@@ -2,6 +2,7 @@ import FlagIcon from "@/assets/icons/flag";
 import TaskItem from "@/components/task/TaskItem";
 import { Input, Pagination, Select } from "antd";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function TodoPage() {
 
@@ -34,12 +35,7 @@ export default function TodoPage() {
           status="1"
           category="UI/UX"
         />
-        <TaskItem
-          name="Học từ vựng..."
-          date="24/5"
-          category="Tiếng nhật"
-          status="1"
-        />
+
         <TaskItem
           name="Làm bài tập ... "
           date="24/5"
@@ -70,6 +66,14 @@ export default function TodoPage() {
           date="24/5"
           status="1"
         />
+        <Link to={'/info-task'} className="w-full inline-flex">
+          <TaskItem
+            name="Học từ vựng..."
+            date="24/5"
+            category="Tiếng nhật"
+            status="1"
+          />
+        </Link>
       </div>
 
       <div className="fixed bottom-[60px] w-full flex flex-row items-center justify-center mt-[20px]">
