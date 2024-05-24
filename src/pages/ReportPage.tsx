@@ -1,6 +1,9 @@
 import { BarGraph } from "@/components/ui/barGraph";
-// import { Liquid } from '@ant-design/plots';
-import { Flex, Progress } from "antd";
+import { useState } from "react";
+import ModelTask from "@/components/ui/modelTask";
+import { Flex, Progress, Select, Radio } from "antd";
+import { setOptions } from "node_modules/react-chartjs-2/dist/utils";
+type SizeType = {};
 // const DemoLiquid = () => {
 //   const config = {
 //     percent: 0.4,
@@ -14,6 +17,14 @@ import { Flex, Progress } from "antd";
 //   return <Liquid {...config} />;
 // };
 export default function ReportPage() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [timeDisplay, setTimeDisplay] = useState('week')
+  const [size, setSize] = useState<SizeType>('week');
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const options = {
@@ -51,19 +62,41 @@ export default function ReportPage() {
       },
     ],
   };
-
+  const hanleOpenModal = () => {
+    setIsModalOpen(true)
+  }
+  const optionsSelect = [
+    { value: 'japanese', label: 'Tiếng Nhật' },
+    { value: 'uiux', label: 'Môn UI/UX' },
+  ]
   return (
-    <div>
-      report nè
+    <div className="mt-5">
+      <div className="flex justify-around flex-row mb-5">
+        <Select
+          defaultValue='japanese'
+          style={{ width: 120 }}
+          onChange={handleChange}
+          options={optionsSelect}
+        />
+        <Radio.Group value={size} onChange={(e) => { setTimeDisplay(e.target.value), setSize(e.target.value) }}>
+          <Radio.Button value="week">Tuần</Radio.Button>
+          <Radio.Button value="month">Tháng</Radio.Button>
+        </Radio.Group>
+      </div>
+      <div>
+
+
+      </div>
       <div className="flex flex-col gap-10">
-        <div className="h-[30vh] w-full flex flex-col justify-center items-center">
+        <div className="h-[30vh] w-full flex flex-col justify-center gap-5 items-center">
           <p className="text-blue-500 font-semibold text-2xl">
             Tiến độ nhiệm vụ
           </p>
           {/* <DemoLiquid /> */}
-          <Flex align="center" justify="center" wrap gap={30}>
+          <Flex align="center" justify="center" wrap gap={30} onClick={hanleOpenModal}>
             <Progress type="circle" size={150} percent={50} />
           </Flex>
+          <ModelTask isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </div>
         <div className=" flex flex-col justify-center items-center">
           <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
