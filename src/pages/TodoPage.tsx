@@ -29,37 +29,44 @@ export default function TodoPage() {
       }
       <div className="flex flex-row flex-wrap gap-[10px] justify-between px-[20px] mt-[20px]">
         <TaskItem
-          name="UX - UI"
+          name="Code mobile.."
           date="24/5"
           status="1"
+          category="UI/UX"
         />
         <TaskItem
           name="Học từ vựng..."
           date="24/5"
+          category="Tiếng nhật"
           status="1"
         />
         <TaskItem
           name="Làm bài tập ... "
           date="24/5"
+          category="Tiếng nhật"
           status="2"
         />
         <TaskItem
           name="Chuẩn bị ..."
+          category="Tiếng nhật"
           date="24/5"
           status="1"
         />
         <TaskItem
           name="Học ngữ pháp ..."
+          category="Tiếng nhật"
           date="24/5"
           status="1"
         />
         <TaskItem
           name="Code giao diện.."
           date="24/5"
+          category="UI/UX"
           status="2"
         />
         <TaskItem
           name="Soạn script.."
+          category="Tiếng nhật"
           date="24/5"
           status="1"
         />
