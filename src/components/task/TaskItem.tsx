@@ -4,12 +4,14 @@ type IProps = {
     name?: string;
     date: string;
     status: string;
+    category: string
 }
 export default function TaskItem(
     {
         name,
         date,
-        status
+        status,
+        category,
     }: IProps
 ) {
     return (
@@ -22,8 +24,12 @@ export default function TaskItem(
                 {status == "1" ? "Đã hoàn thành" : "Chưa hoàn thành"}
             </div>
             <div className="flex justify-between">
-                <FlagIcon />
+                <div className="flex flex-row  items-center gap-2">
+                    <FlagIcon />
+                    <p className="text-blue-800">{category}</p>
+                </div>
                 <img src="avt.png" className="w-[10px] h-[10px] rounded-full" />
+
             </div>
         </div>
 
