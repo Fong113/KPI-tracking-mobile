@@ -98,6 +98,7 @@ export default function ReportPage() {
           </Flex>
           <ModelTask isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </div>
+
         <div className=" flex flex-col justify-center items-center">
           <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
           <BarGraph options={options} data={data} />
