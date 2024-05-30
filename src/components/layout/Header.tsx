@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MenuOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import MenuLeft from '../menu-left';
 import BellIcon from '@/assets/icons/bell';
-import { Drawer, Modal } from 'antd';
+import { Drawer } from 'antd';
 
 
 

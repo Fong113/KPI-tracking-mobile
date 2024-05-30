@@ -6,7 +6,7 @@ import TodoPage from "@/pages/TodoPage";
 import Personal from "@/pages/Personal";
 import SettingPage from "@/pages/SettingPage";
 import TreePage from "@/pages/TreePage";
-import AddEditTaskPage from "@/components/task/infoTask";
+import TaskInfo from "@/components/task/infoTask";
 import AddTaskPage from "@/pages/AddTaskPage";
 export default function AllRouter(){
   return (
@@ -18,7 +18,7 @@ export default function AllRouter(){
     <Route path="/personal" element={<MainLayout children={<Personal />} />} />
     <Route path="/setting" element={<MainLayout children={<SettingPage />} />} />
     <Route path="/tree" element={<MainLayout children={<TreePage />} />} />
-    <Route path="/info-task" element={<MainLayout children={<AddEditTaskPage />} />} />
+    <Route path="/info-task" element={<MainLayout children={<TaskInfo />} />} />
     <Route path="/addtask" element={<MainLayout children={<AddTaskPage />} />} />
     
     </Routes>

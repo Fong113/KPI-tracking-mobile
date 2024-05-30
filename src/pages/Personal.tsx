@@ -1,9 +1,8 @@
-import BackIcon from "@/assets/icons/back";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 interface InputProps {
@@ -67,7 +66,7 @@ export default function Profile({}: Props) {
     },
   ];
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [selected, setSelected] = useState("op1");
   const [popup, setPopup] = useState(false);
   const handleBackPopup = () => {
@@ -79,18 +78,18 @@ export default function Profile({}: Props) {
   const handleOp2 = () => {
     setSelected("op2");
   };
-  const handleCancel = () => {
-    toast.error("Đã hủy bỏ thay đổi");
-  };
+  // const handleCancel = () => {
+  //   toast.error("Đã hủy bỏ thay đổi");
+  // };
   const handleSubmit = () => {
     toast.success("Đã lưu thay đổi");
   };
   const handleLink = () => {
     setPopup(true);
   };
-  const handleBack = () => {
-    navigate("/");
-  };
+  // const handleBack = () => {
+  //   navigate("/");
+  // };
 
   return (
     <>

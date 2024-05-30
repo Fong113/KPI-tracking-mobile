@@ -2,7 +2,7 @@ import { BarGraph } from "@/components/ui/barGraph";
 import { useState } from "react";
 import ModelTask from "@/components/ui/modelTask";
 import { Flex, Progress, Select, Radio, Tooltip } from "antd";
-import { setOptions } from "node_modules/react-chartjs-2/dist/utils";
+// import { setOptions } from "node_modules/react-chartjs-2/dist/utils";
 import InfoIcon from "@/assets/icons/info";
 type SizeType = {};
 // const DemoLiquid = () => {
@@ -113,10 +113,10 @@ export default function ReportPage() {
         </div>
 
 
-        <div className=" flex flex-col justify-center items-center">
+        { timeDisplay === 'week' && <div className=" flex flex-col justify-center items-center">
           <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
           <BarGraph options={options} data={data} />
-        </div>
+        </div>}
         <div className="flex flex-col gap-[20px] mb-[20px]">
           <div className="flex w-full justify-center text-blue-500 font-semibold text-2xl">Thông tin chi tiết</div>
           <div className="flex flex-col gap-[10px] px-[10px]">
