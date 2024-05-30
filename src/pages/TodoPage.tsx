@@ -3,10 +3,14 @@ import TaskItem from "@/components/task/TaskItem";
 import { Input, Pagination, Select } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useTaskContext } from "@/contexts/taskContext";
 
 export default function TodoPage() {
 
   const [openSearch, setOpenSearch] = useState<Boolean>(false);
+  const { allTask } = useTaskContext()
 
   const handleOpenSearch = () => {
     setOpenSearch(prev => !prev);
@@ -14,8 +18,8 @@ export default function TodoPage() {
 
   return (
     <div className="">
-      <div className="mt-[20px] w-full text-[24px] text-center" onClick={handleOpenSearch}>
-        Tìm kiếm
+      <div className="w-full text-[24px] text-center" onClick={handleOpenSearch}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} size='xs' /> Tìm kiếm
       </div>
 
       {openSearch && <div className="flex flex-col mb-[80px] items-center w-full h-[40px] gap-[20px]">
@@ -29,6 +33,14 @@ export default function TodoPage() {
       </div>
       }
       <div className="flex flex-row flex-wrap gap-[10px] justify-between px-[20px] mt-[20px]">
+        {allTask.map((task) => (
+          <TaskItem
+            name={task.name}
+            date={task.date}
+            status={task.status}
+            category={task.category}
+          />
+        ))}
         <TaskItem
           name="Code mobile.."
           date="24/5"
@@ -76,7 +88,7 @@ export default function TodoPage() {
         </Link>
       </div>
 
-      <div className="fixed bottom-[60px] w-full flex flex-row items-center justify-center mt-[20px]">
+      <div className="fixed bg-white bottom-[50px] flex-grow w-full flex flex-row items-center justify-center mt-[20px]">
         <Pagination defaultCurrent={1} total={50} />
       </div>
     </div>

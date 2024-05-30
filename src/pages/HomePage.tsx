@@ -1,5 +1,10 @@
-import { Carousel, } from 'antd';
-
+import { Carousel, Progress } from 'antd';
+import type { ProgressProps } from 'antd';
+import TodayTask from '@/components/task/today-task';
+const twoColors: ProgressProps['strokeColor'] = {
+  '0%': '#108ee9',
+  '100%': '#87d068',
+};
 // const contentStyle: React.CSSProperties = {
 //   margin: 0,
 //   height: '160px',
@@ -16,9 +21,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className='w-full mb-[20px]'>
-      <div className='flex flex-col gap-[20px] w-full px-[20px]' >
-        <div className='flex justify-center w-full items-center text-blue-500 font-semibold text-2xl'>Tổng quan</div>
+    <div className='w-full mb-[20px] flex flex-col gap-7'>
+      <div className='flex flex-col gap-3 w-full px-[20px]' >
+        <div className='flex justify-center w-full items-center text-blue-500 font-semibold text-2xl'>Tiến độ của các KPI </div>
         <div className='flex flex-col justify-center gap-[10px] w-full'>
           <Carousel className='flex flex-row items-center' afterChange={onChange} autoplay>
             <div>
@@ -33,48 +38,27 @@ export default function HomePage() {
           </Carousel>
         </div>
       </div>
-      <div className='flex flex-col gap-[30px] w-full px-[20px]'>
-        <div className='flex flex-col gap-[20px] w-full '>
-          <div className='justify-center text-blue-500 font-semibold text-[24px] w-full flex mt-3 '>Task hôm nay</div>
-          <div className='px-[10px] bg-blue-300 py-[6px] flex flex-col gap-[6px] rounded-[15px]'
-          >
-            <div className='flex flex-row justify-between'>
-              <div>Tiếng Nhật</div>
-              <div>1.5h</div>
-            </div>
-            <div>
-              Chưa hoàn thành
-            </div>
+      <div className='flex flex-col gap-[30px] mx-5 p-5 pt-0 bg-white border-solid shadow-md rounded-xl max-h-[300px] overflow-hidden overflow-y-auto'>
+        <div className='flex flex-col gap-3 w-full'>
+          <div className='justify-center text-blue-500 font-semibold text-2xl w-full flex '>Nhiệm vụ hôm nay</div>
+          <div className='flex flex-col gap-[20px] w-full '>
+            <TodayTask name='Học ngữ pháp' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='done' />
+            <TodayTask name='Học từ vựng từ 500-600' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='pending' />
+            <TodayTask name='Học ngữ pháp' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='done' />
           </div>
 
-          <div className='px-[10px] bg-blue-300 py-[6px] flex flex-col gap-[6px] rounded-[15px]'
-          >
-            <div className='flex flex-row justify-between'>
-              <div>UX - UI</div>
-              <div>1.5h</div>
-            </div>
-            <div>
-              Chưa hoàn thành
-            </div>
-          </div>
-          
-          <div className='px-[10px] bg-blue-300 py-[6px] flex flex-col gap-[6px] rounded-[15px]'
-          >
-            <div className='flex flex-row justify-between'>
-              <div>ITSS</div>
-              <div>2.5h</div>
-            </div>
-            <div>
-              Đã hoàn thành
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className='flex flex-col items-center mt-[10px]'>
+      <div className='flex flex-col items-center gap-3'>
         <div className='justify-center text-blue-500 font-semibold text-[24px] mt-3'>Cây của tôi</div>
-        <div>
+        <div className='flex flex-col justify-center items-center'>
           <img src="tree_2d.png" />
+          <div className='w-52'>
+            <Progress percent={60} strokeColor={twoColors} />
+          </div>
+          <div className='text-xl'>Cần thêm 40h nữa để trồng cây </div>
+
         </div>
       </div>
 

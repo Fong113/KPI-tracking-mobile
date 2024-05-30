@@ -67,11 +67,11 @@ export default function SettingPage({ }: Props) {
         </div>
       </div>
       <div className="w-full flex flex-col md:flex-row gap-10 mt-6">
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="flex flex-col gap-4 w-full md:w-1/2 px-5">
           <CascaderInput label="Ngôn ngữ" options={language} defaultvalue="vietnam" />
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full md:w-1/2">
-              <CascaderInput label="Định dạng" options={fomartDate} defaultvalue="MM/DD/YYYY" />
+              <CascaderInput label="Định dạng ngày" options={fomartDate} defaultvalue="MM/DD/YYYY" />
             </div>
             <div className="w-full md:w-1/2">
               <CascaderInput label="Định dạng giờ" options={fomartTime} defaultvalue="12" />
@@ -83,7 +83,7 @@ export default function SettingPage({ }: Props) {
             Thêm lịch
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="flex flex-col gap-4 w-full md:w-1/2 px-5">
           <CascaderInput label="Cài đặt thông báo" options={notify} defaultvalue="screen" />
           <CascaderInput label="Thông báo trước sự kiện" options={notifyBefore} defaultvalue="30" />
           <CascaderInput label="Bắt đầu tuần vào" options={weekStart} defaultvalue="monday" />

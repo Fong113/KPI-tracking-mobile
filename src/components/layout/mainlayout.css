@@ -1,7 +1,7 @@
 .containerCustom {
   display: flex;
   flex-direction: column;
-  margin-top: 5vh;
+  margin-top: 7vh;
   margin-bottom: 7vh;
 }
 
@@ -13,8 +13,9 @@
   background-color: #fff;
   color: white;
   text-align: center;
-  height: 5vh;
+  height: 6vh;
   z-index: 1000;
+  border-bottom: #e6e6e6 1px solid;
 }
 .content {
   flex-grow: 1; /* Để chiếm phần còn lại của không gian */
@@ -28,4 +29,5 @@
   bottom: 0;
   background-color: #fff; /* Màu nền cho phần nội dung chính */
   width: 100%;
+  border-top: #e6e6e6 1px solid;
 }

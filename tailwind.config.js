@@ -60,6 +60,14 @@ module.exports = {
           inpur: "rgba(var(--border-input))",
         }
       },
+      fontFamily: {
+        'great-vibes': ['Great Vibes', 'cursive'],
+        'pacifico': ['Pacifico', 'cursive'],
+        'lobster': ['Lobster', 'cursive'],
+        'playfair': ['Playfair Display', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'raleway': ['Raleway', 'sans-serif'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

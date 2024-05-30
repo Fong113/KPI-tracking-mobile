@@ -9,7 +9,11 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 
-export default () => {
+export default function BotBar() {
+    
+  
+  const location = useLocation()
+
   const tabs = [
     {
       key: '/home',
@@ -29,23 +33,21 @@ export default () => {
       icon: <PieOutline />,
       badge: '5',
     },
+    
+    {
+      key: '/tree',
+      title: 'Cây',
+      icon: location.pathname === '/tree' ? <TreeIcon width="26" stroke='#1677ff'  height="24"/> : <TreeIcon width="26" height="24"/>
+    },
     {
       key: '/personal',
       title: 'Cá nhân',
       icon: <UserOutline />,
     },
-    {
-      key: '/tree',
-      title: 'Cây',
-      icon: <TreeIcon width="26" height="24"/>
-    }
   ]
   const navigate = useNavigate();
 
-  // const [activeKey, setActiveKey] = useState('home')
 
-  const location = useLocation()
-  console.log(location);
   
   
   const handleChangeBar = (e: any) => {

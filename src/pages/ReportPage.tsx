@@ -91,15 +91,15 @@ export default function ReportPage() {
       </div>
       <div className="flex flex-col gap-[20px] px-[10px]">
         <div className="flex flex-col gap-[20px]">
-          <div className="w-full justify-center flex flex-row gap-[20px] items-center">
+          <div className="w-full justify-center flex flex-row gap-3 items-center">
             <div className="text-blue-500 font-semibold text-2xl">
               Đánh giá
             </div>
-              <Tooltip title="KPI = (Hoàn thành nhiệm vụ / Tổng số nhiệm vụ) * 60 + (Tổng số giờ làm việc / Số giờ làm việc tiêu chuẩn) * 40">
-                <div>
+            <Tooltip title="KPI = Tỉ lệ hoàn thành nhiệm vụ * 60% + Hiệu suất làm việc * 40%">
+              <div>
                 <InfoIcon />
-                </div>
-              </Tooltip>
+              </div>
+            </Tooltip>
           </div>
 
           <div className="w-full flex justify-center items-center my-[20px]">
@@ -113,7 +113,7 @@ export default function ReportPage() {
         </div>
 
 
-        { timeDisplay === 'week' && <div className=" flex flex-col justify-center items-center">
+        {timeDisplay === 'week' && <div className=" flex flex-col justify-center items-center">
           <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
           <BarGraph options={options} data={data} />
         </div>}

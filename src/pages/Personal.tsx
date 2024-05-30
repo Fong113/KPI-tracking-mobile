@@ -12,9 +12,9 @@ interface InputProps {
 type Props = {};
 const InputProfile = ({ label, defaultValue }: InputProps) => {
   return (
-    <div className="flex flex-col gap-[10px]">
-      <Label className="text-gray-800 text-[20px] font-normal">{label}</Label>
-      <Input defaultValue={defaultValue} className="w-[367px]" />
+    <div className="flex flex-col gap-1">
+      <Label className="text-xl font-medium">{label}</Label>
+      <Input defaultValue={defaultValue} className="" />
     </div>
   );
 };
@@ -32,7 +32,7 @@ const AccountOption: React.FC<AccountOptionProps> = ({ src, alt, text }) => (
   </div>
 );
 
-export default function Profile({}: Props) {
+export default function Profile({ }: Props) {
   const accountOptions = [
     {
       src: "https://cdn.builder.io/api/v1/image/assets/TEMP/f2850bc7d0dd698d06bc296ede35c5bb644408a66a110899dbd4af76eb676e16?apiKey=f19a917c094b4f6fa8172f34eb76d09c&",
@@ -104,43 +104,40 @@ export default function Profile({}: Props) {
             <div className="header flex flex-1 justify-around flex-row border-b-2 border-solid border-[#82ccf1]">
               <div
                 onClick={handleOp1}
-                className={`text-xl flex justify-center ${
-                  selected === "op1"
+                className={`text-xl flex justify-center ${selected === "op1"
                     ? "text-[#1D2D35] border-b-4 border-solid border-[#307ba7]"
                     : ""
-                }`}
+                  }`}
               >
-                Thông tin 
+                Thông tin
               </div>
               <div
                 onClick={handleOp2}
-                className={`text-xl flex justify-center  ${
-                  selected === "op2"
+                className={`text-xl flex justify-center  ${selected === "op2"
                     ? "text-black border-b-4 border-solid border-[#5263FF]"
                     : ""
-                }`}
+                  }`}
               >
                 Liên kết
               </div>
             </div>
-            <div>
+            <div className="h-full">
               {selected === "op1" ? (
-                <div className="flex flex-col items-start justify-center ml-2">
+                <div className="flex flex-col items-center justify-center ml-2 px-6">
                   <div className="avatar  mx-auto flex flex-col  justify-center items-center">
                     <div className="flex justify-center ">
                       <img src="/avt.png" className="w-[200px] " alt="avatar nè" />
                     </div>
                     <div>
                       <div
-                        className="w-[100px] h-[22px] rounded-[15px] bg-white/40 flex justify-center"
-                        style={{ boxShadow: "0px 4px 4px 0 rgba(0,0,0,0.25)" }}
+                        className="px-5 border-solid border h-[22px] rounded-[5px] bg-white flex justify-center"
                       >
                         Tải ảnh lên
                       </div>
                     </div>
                   </div>
                   <div className="info flex flex-col gap-[31px]">
-                    <div className="flex flex-col gap-[50px] mt-[30px]">
+                    <div className="flex flex-col justify-center gap-7 mt-[30px]">
                       <InputProfile
                         label="Email"
                         defaultValue="test@gmail.com"
@@ -149,29 +146,20 @@ export default function Profile({}: Props) {
                         label="Tên đăng nhập"
                         defaultValue="windbeandz"
                       />
-                    </div>
-                    <div>
+
                       <InputProfile
-                        label="Số giờ dự kiến làm việc trong tháng (hh)"
+                        label="Số giờ dự kiến làm việc trong tháng"
                         defaultValue="60"
                       />
-                    </div>
-                    <div className="flex flex-col gap-[40px]">
+
                       <InputProfile label="Quốc gia" defaultValue="Việt Nam" />
                       <InputProfile label="Thành phố" defaultValue="Hà Nội" />
                     </div>
-                    <div className="flex align-center justify-around">
-                      {/* <Button
-                        onClick={handleCancel}
-                        variant="destructive"
-                        className="text-white w-38"
-                      >
-                        Hủy
-                      </Button> */}
+                    <div className="flex align-center mb-5 justify-around">
                       <Button
                         onClick={handleSubmit}
                         variant="submit"
-                        className="text-white w-40"
+                        className="text-white text-2xl"
                       >
                         Lưu thay đổi
                       </Button>
@@ -179,9 +167,9 @@ export default function Profile({}: Props) {
                   </div>
                 </div>
               ) : (
-                <div className="flex p-3 flex-col justify-between h-[55vh] mt-[47px]">
-                  <div className="flex flex-col p-5 rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
-                    <div className=" mt-[18px] text-xl text-left text-[#1d2d35]">
+                <div className="flex p-3 flex-col justify-between h-[65vh] mt-5">
+                  <div className="flex flex-col p-5 rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-3">
+                    <div className=" text-blue-500 text-xl text-left ">
                       Google
                     </div>
                     <div className=" text-xl">
@@ -189,26 +177,29 @@ export default function Profile({}: Props) {
                       <p className="inline text-[#fb4949]">
                         nguyenvana@gmail.com
                       </p>{" "}
-                      đã được liên kết với Tracking KPI
+                      đã được liên kết với PhoKPI
                     </div>
-                    <div
+                    {/* <div
                       className=" my-[8px]  bg-[#ff4d4f] rounded-[10px] h-10 text-xl text-center text-white flex items-center justify-center"
                     >
                       Hủy liên kết tài khoản này
-                    </div>
+                    </div> */}
                   </div>
                   <Button
                     onClick={handleLink}
                     variant="submit"
-                    className="text-white self-end text-2xl font-medium w-70"
+                    className="text-white self-end text-xl font-medium w-70 rounded-xl"
                   >
                     Liên kết các tài khoản khác
                   </Button>
                   {popup && (
                     <>
-                      <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                        <div className="flex flex-col items-end px-11 pt-9 pb-20 text-lg font-medium #1D2D35 bg-white rounded-2xl shadow-sm max-w-[536px] max-md:px-5">
-                          <header className="flex gap-5 items-start self-start text-3xl font-semibold #1D2D35">
+                      <section className="fixed mt-[6vh] inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div className="overflow-hidden overflow-y-auto flex flex-col items-center h-[80vh]   px-11 pt-9 pb-20 text-lg font-medium #1D2D35 bg-white rounded-2xl shadow-sm max-w-[536px] max-md:px-5">
+                          <header className="flex gap-12 items-center  text-3xl font-semibold #1D2D35">
+                            <div className="flex-auto">
+                              Chọn tài khoản
+                            </div>
                             <img
                               loading="lazy"
                               onClick={handleBackPopup}
@@ -216,9 +207,7 @@ export default function Profile({}: Props) {
                               alt="Account Selection Icon"
                               className="shrink-0 mr-2.5 -ml-0.5 aspect-[1.11] w-[20px]"
                             />
-                            <div className="flex-auto mt-3 ml-2">
-                              Chọn tài khoản
-                            </div>
+
                           </header>
 
                           {accountOptions.map((option, index) => (
