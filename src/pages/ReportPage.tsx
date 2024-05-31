@@ -2,6 +2,7 @@ import { BarGraph } from "@/components/ui/barGraph";
 import { useState } from "react";
 import ModelTask from "@/components/ui/modelTask";
 import { Flex, Progress, Select, Radio, Tooltip } from "antd";
+import { LineGraph } from "@/components/ui/lineGraph";
 // import { setOptions } from "node_modules/react-chartjs-2/dist/utils";
 import InfoIcon from "@/assets/icons/info";
 type SizeType = {};
@@ -18,11 +19,10 @@ type SizeType = {};
 //   return <Liquid {...config} />;
 // };
 export default function ReportPage() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [timeDisplay, setTimeDisplay] = useState('week')
-  const [size, setSize] = useState<SizeType>('week');
+  const [timeDisplay, setTimeDisplay] = useState("week");
+  const [size, setSize] = useState<SizeType>("week");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
@@ -63,38 +63,71 @@ export default function ReportPage() {
       },
     ],
   };
+
+  const labelsLine = ["1", "5", "10", "15", "20", "25", "30"];
+
+  const optionsLine = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+      title: {
+        display: false,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+
+  const dataLine = {
+    labels: labelsLine,
+    datasets: [
+      {
+        label: "Thời gian dự kiến",
+        data: labelsLine.map(() => getRandomNumber(20, 100)),
+        borderColor: "#4EB9EA",
+        backgroundColor: "#4EB9EA",
+      },
+      {
+        label: "Thời gian thực tế",
+        data: labelsLine.map(() => getRandomNumber(20, 100)),
+        borderColor: "#116783",
+        backgroundColor: "#116783",
+      },
+    ],
+  };
   const hanleOpenModal = () => {
-    setIsModalOpen(true)
-  }
+    setIsModalOpen(true);
+  };
   const optionsSelect = [
-    { value: 'japanese', label: 'Tiếng Nhật' },
-    { value: 'uiux', label: 'Môn UI/UX' },
-    { value: 'it', label: 'Môn ITSS' },
-  ]
+    { value: "japanese", label: "Tiếng Nhật" },
+    { value: "uiux", label: "Môn UI/UX" },
+    { value: "it", label: "Môn ITSS" },
+  ];
   return (
     <div className="mt-5">
       <div className="flex justify-around flex-row mb-5">
         <Select
-          defaultValue='japanese'
+          defaultValue="japanese"
           style={{ width: 120 }}
           onChange={handleChange}
           options={optionsSelect}
         />
-        <Radio.Group value={size} onChange={(e) => { setTimeDisplay(e.target.value), setSize(e.target.value) }}>
+        <Radio.Group
+          value={size}
+          onChange={(e) => {
+            setTimeDisplay(e.target.value), setSize(e.target.value);
+          }}
+        >
           <Radio.Button value="week">Tuần</Radio.Button>
           <Radio.Button value="month">Tháng</Radio.Button>
         </Radio.Group>
       </div>
-      <div>
-
-
-      </div>
+      <div></div>
       <div className="flex flex-col gap-[20px] px-[10px]">
         <div className="flex flex-col gap-[20px]">
           <div className="w-full justify-center flex flex-row gap-3 items-center">
-            <div className="text-blue-500 font-semibold text-2xl">
-              Đánh giá
-            </div>
+            <div className="text-blue-500 font-semibold text-2xl">Đánh giá</div>
             <Tooltip title="KPI = Tỉ lệ hoàn thành nhiệm vụ * 60% + Hiệu suất làm việc * 40%">
               <div>
                 <InfoIcon />
@@ -103,22 +136,36 @@ export default function ReportPage() {
           </div>
 
           <div className="w-full flex justify-center items-center my-[20px]">
-            <div className="w-[100px] h-[100px] flex items-center justify-center rounded-full" onClick={hanleOpenModal}>
-              <Flex align="center" justify="center" wrap gap={30} >
+            <div
+              className="w-[100px] h-[100px] flex items-center justify-center rounded-full"
+              onClick={hanleOpenModal}
+            >
+              <Flex align="center" justify="center" wrap gap={30}>
                 <Progress type="circle" size={150} percent={83.4} />
               </Flex>
             </div>
-            <ModelTask isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <ModelTask
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
           </div>
         </div>
 
-
-        {timeDisplay === 'week' && <div className=" flex flex-col justify-center items-center">
-          <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
-          <BarGraph options={options} data={data} />
-        </div>}
+        {timeDisplay === "week" ? (
+          <div className=" flex flex-col justify-center items-center">
+            <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
+            <BarGraph options={options} data={data} />
+          </div>
+        ) : (
+          <div className=" flex flex-col justify-center items-center">
+            <p className="text-blue-500 font-semibold text-2xl">Hiệu suất</p>
+            <LineGraph options={optionsLine} data={dataLine} />
+          </div>
+        )}
         <div className="flex flex-col gap-[20px] mb-[20px]">
-          <div className="flex w-full justify-center text-blue-500 font-semibold text-2xl">Thông tin chi tiết</div>
+          <div className="flex w-full justify-center text-blue-500 font-semibold text-2xl">
+            Thông tin chi tiết
+          </div>
           <div className="flex flex-col gap-[10px] px-[10px]">
             <div className="flex flex-row justify-between">
               <div className="flex flex-col gap-[10px]">
@@ -140,7 +187,6 @@ export default function ReportPage() {
                 <div>2</div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

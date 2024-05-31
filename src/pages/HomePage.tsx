@@ -1,18 +1,12 @@
 import { Carousel, Progress } from 'antd';
 import type { ProgressProps } from 'antd';
 import TodayTask from '@/components/task/today-task';
+import { Link } from 'react-router-dom';
 const twoColors: ProgressProps['strokeColor'] = {
   '0%': '#108ee9',
   '100%': '#87d068',
 };
-// const contentStyle: React.CSSProperties = {
-//   margin: 0,
-//   height: '160px',
-//   color: '#fff',
-//   lineHeight: '160px',
-//   textAlign: 'center',
-//   background: '#364d79',
-// };
+
 
 export default function HomePage() {
 
@@ -38,13 +32,16 @@ export default function HomePage() {
           </Carousel>
         </div>
       </div>
-      <div className='flex flex-col gap-[30px] mx-5 p-5 pt-0 bg-white border-solid shadow-md rounded-xl max-h-[300px] overflow-hidden overflow-y-auto'>
+      <div className='flex flex-col gap-[30px] mx-5 p-5 pt-0 bg-white border-solid shadow-md rounded-xl'>
         <div className='flex flex-col gap-3 w-full'>
           <div className='justify-center text-blue-500 font-semibold text-2xl w-full flex '>Nhiệm vụ hôm nay</div>
-          <div className='flex flex-col gap-[20px] w-full '>
-            <TodayTask name='Học ngữ pháp' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='done' />
-            <TodayTask name='Học từ vựng từ 500-600' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='pending' />
-            <TodayTask name='Học ngữ pháp' category="Tiếng Nhật" startTime='09:20' endTime='11:45' status='done' />
+          <div className='flex flex-col gap-[20px]  max-h-[250px] overflow-hidden overflow-y-auto'>
+            <Link to={"/info-task"}>
+              <TodayTask name='Học từ vựng từ 500-600' category="Tiếng Nhật" startTime='08:00' endTime='10:00' status='done' />
+
+            </Link>
+            <TodayTask name='Code giao diện UI-UX' category="UI/UX" startTime='10:00' endTime='12:00' status='pending' />
+            <TodayTask name='Học ngữ pháp' category="Tiếng Nhật" startTime='13:30' endTime='15:30' status='done' />
           </div>
 
         </div>

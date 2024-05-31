@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { PlusCircleOutlined } from '@ant-design/icons';
 import MenuLeft from '../menu-left';
 import BellIcon from '@/assets/icons/bell';
 import { Drawer } from 'antd';
@@ -19,9 +18,7 @@ export default function Header() {
   const handleBell = () => {
     setBell(v => !v);
   }
-  const handleAddTask = () => {
-    location.href = "/addtask"
-  }
+
   return (
     <div className="shadow-sm flex flex-row items-center h-full relative">
       <div className='px-3 flex justify-between w-full'>
@@ -33,9 +30,9 @@ export default function Header() {
 
         </div>
         <div className='flex flex-row'>
-          <div className='w-[30px] h-[30px] flex items-center justify-center' onClick={handleAddTask}>
+        {/* <div className='w-[30px] h-[30px] flex items-center justify-center' onClick={handleAddTask}>
             <PlusCircleOutlined className='text-black ' height={30} width={30} />
-          </div>
+          </div> */}
           <div onClick={handleBell} className='relative'>
             <BellIcon width='20' height='30' />
             <Drawer title="Thông báo" placement='right' width={'40vh'} closable={false} open={bell}>

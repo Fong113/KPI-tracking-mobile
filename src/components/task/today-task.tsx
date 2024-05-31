@@ -37,7 +37,7 @@ export default function TodayTask({ name, status, startTime, endTime, category }
         <div className='h-[24px] overflow-hidden'>{name}</div>
         <div className='flex flex-col gap-[4px] text-[14px] '>
           <div className='flex flex-row gap-1 h-[14px] items-center font-semibold text-blue-900'><FontAwesomeIcon icon={faLayerGroup} size='xs' style={{color: "#B197FC",}} />{category}</div>
-          <div className={`flex flex-row gap-1 h-[14px] items-center ${status === 'pending' ? 'text-[#6e6e6e]' : 'text-black' }`}><FontAwesomeIcon icon={faCircle} style={{ color: status === 'process' ? "#74C0FC" : 'red', fontSize: '7px' }} />{getStatus(status)}</div>
+          <div className={`flex flex-row gap-1 h-[14px] items-center ${status === 'pending' ? 'text-[#6e6e6e]' : 'text-black' }`}><FontAwesomeIcon icon={faCircle} style={{ color: status === 'pending' ? "#74C0FC" : 'red', fontSize: '7px' }} />{getStatus(status)}</div>
         </div>
 
 

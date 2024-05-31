@@ -19,7 +19,7 @@ export default function AllRouter(){
     <Route path="/setting" element={<MainLayout children={<SettingPage />} />} />
     <Route path="/tree" element={<MainLayout children={<TreePage />} />} />
     <Route path="/info-task" element={<MainLayout children={<TaskInfo />} />} />
-    <Route path="/addtask" element={<MainLayout children={<AddTaskPage />} />} />
+    <Route path="/add-task" element={<MainLayout children={<AddTaskPage />} />} />
     
     </Routes>
   )

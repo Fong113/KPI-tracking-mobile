@@ -4,8 +4,8 @@ type Props = {
 }
 
 export default function BellIcon({ 
-  width="30",
-   height="30"
+  width="20",
+   height="20"
 }: Props) {
   return (
     <svg width={width} height={height}  viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

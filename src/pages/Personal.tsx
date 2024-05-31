@@ -10,7 +10,7 @@ interface InputProps {
   defaultValue: string;
 }
 type Props = {};
-const InputProfile = ({ label, defaultValue }: InputProps) => {
+export const InputProfile = ({ label, defaultValue }: InputProps) => {
   return (
     <div className="flex flex-col gap-1">
       <Label className="text-xl font-medium">{label}</Label>

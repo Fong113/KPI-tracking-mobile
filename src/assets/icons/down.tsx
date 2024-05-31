@@ -5,8 +5,8 @@ type Props = {
 }
 
 export default function DownIcon({
-  width = "18",
-  height = "14"
+  width = "14",
+  height = "10"
 }: Props) {
   return (
     <svg width={width} height={height} viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
