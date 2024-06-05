@@ -105,8 +105,8 @@ export default function Profile({ }: Props) {
               <div
                 onClick={handleOp1}
                 className={`text-xl flex justify-center ${selected === "op1"
-                    ? "text-[#1D2D35] border-b-4 border-solid border-[#307ba7]"
-                    : ""
+                  ? "text-[#1D2D35] border-b-4 border-solid border-[#307ba7]"
+                  : ""
                   }`}
               >
                 Thông tin
@@ -114,8 +114,8 @@ export default function Profile({ }: Props) {
               <div
                 onClick={handleOp2}
                 className={`text-xl flex justify-center  ${selected === "op2"
-                    ? "text-black border-b-4 border-solid border-[#5263FF]"
-                    : ""
+                  ? "text-black border-b-4 border-solid border-[#5263FF]"
+                  : ""
                   }`}
               >
                 Liên kết
@@ -156,18 +156,14 @@ export default function Profile({ }: Props) {
                       <InputProfile label="Thành phố" defaultValue="Hà Nội" />
                     </div>
                     <div className="flex align-center mb-5 justify-around">
-                      <Button
-                        onClick={handleSubmit}
-                        variant="submit"
-                        className="text-white text-2xl"
-                      >
+                      <Button variant="submit" onClick={handleSubmit} className="text-white w-40 text-xl bg-blue-500">
                         Lưu thay đổi
                       </Button>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="flex p-3 flex-col justify-between h-[65vh] mt-5">
+                <div className="flex p-3 flex-col justify-between  mt-5">
                   <div className="flex flex-col p-5 rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-3">
                     <div className=" text-blue-500 text-xl text-left ">
                       Google
@@ -185,13 +181,10 @@ export default function Profile({ }: Props) {
                       Hủy liên kết tài khoản này
                     </div> */}
                   </div>
-                  <Button
-                    onClick={handleLink}
-                    variant="submit"
-                    className="text-white self-end text-xl font-medium w-70 rounded-xl"
-                  >
+                  <Button variant="submit" onClick={handleLink} className="text-white self-end fixed bottom-32 text-xl w-50 bg-blue-500">
                     Liên kết các tài khoản khác
                   </Button>
+
                   {popup && (
                     <>
                       <section className="fixed mt-[6vh] inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

@@ -4,6 +4,7 @@ import ModelTask from "@/components/ui/modelTask";
 import { Flex, Progress, Select, Radio, Tooltip } from "antd";
 import { LineGraph } from "@/components/ui/lineGraph";
 // import { setOptions } from "node_modules/react-chartjs-2/dist/utils";
+import { useTaskContext } from "@/contexts/taskContext";
 import InfoIcon from "@/assets/icons/info";
 type SizeType = {};
 // const DemoLiquid = () => {
@@ -18,14 +19,34 @@ type SizeType = {};
 //   };
 //   return <Liquid {...config} />;
 // };
-export default function ReportPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
+function randomNumber(min: number, max: number) {
+  const randomNumber = Math.random() * (max - min) + min;
+  return randomNumber.toFixed(2); // Lấy hai chữ số sau dấu chấm
+}
+
+// Số ngẫu nhiên từ 50 đến 90
+export default function ReportPage() {
+  const { allCategory } = useTaskContext()
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<any>(allCategory[0])
   const [timeDisplay, setTimeDisplay] = useState("week");
   const [size, setSize] = useState<SizeType>("week");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
+    const selected = allCategory.find(item => item.name === value)
+    setSelectedCategory(selected)
   };
+
+  // const optionsSelect = [
+  //   { value: "japanese", label: "Tiếng Nhật" },
+  //   { value: "uiux", label: "Môn UI/UX" },
+  //   { value: "it", label: "Môn ITSS" },
+  // ];
+
+  const optionsSelect = allCategory.map(category => ({ value: category.name, label: category.name }))
+  // console.log(optionsSelect);
+
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const options = {
@@ -99,16 +120,12 @@ export default function ReportPage() {
   const hanleOpenModal = () => {
     setIsModalOpen(true);
   };
-  const optionsSelect = [
-    { value: "japanese", label: "Tiếng Nhật" },
-    { value: "uiux", label: "Môn UI/UX" },
-    { value: "it", label: "Môn ITSS" },
-  ];
+
   return (
     <div className="mt-5">
       <div className="flex justify-around flex-row mb-5">
         <Select
-          defaultValue="japanese"
+          defaultValue={selectedCategory.name}
           style={{ width: 120 }}
           onChange={handleChange}
           options={optionsSelect}
@@ -117,14 +134,15 @@ export default function ReportPage() {
           value={size}
           onChange={(e) => {
             setTimeDisplay(e.target.value), setSize(e.target.value);
+            const fakePercent = { ...selectedCategory, progress: randomNumber(50, 90).toString() }
+            setSelectedCategory(fakePercent)
           }}
         >
           <Radio.Button value="week">Tuần</Radio.Button>
           <Radio.Button value="month">Tháng</Radio.Button>
         </Radio.Group>
       </div>
-      <div></div>
-      <div className="flex flex-col gap-[20px] px-[10px]">
+      {selectedCategory && <div className="flex flex-col gap-[20px] px-[10px]">
         <div className="flex flex-col gap-[20px]">
           <div className="w-full justify-center flex flex-row gap-3 items-center">
             <div className="text-blue-500 font-semibold text-2xl">Đánh giá</div>
@@ -141,7 +159,7 @@ export default function ReportPage() {
               onClick={hanleOpenModal}
             >
               <Flex align="center" justify="center" wrap gap={30}>
-                <Progress type="circle" size={150} percent={83.4} />
+                <Progress type="circle" size={150} percent={+selectedCategory.progress} />
               </Flex>
             </div>
             <ModelTask
@@ -178,18 +196,19 @@ export default function ReportPage() {
                 <div>Số task muộn</div>
               </div>
               <div className="flex flex-col gap-[10px]">
-                <div>20</div>
-                <div>10</div>
-                <div>40</div>
-                <div>30</div>
-                <div>Ngữ pháp</div>
-                <div>Đọc hiểu</div>
-                <div>2</div>
+                <div>{selectedCategory.spech.totalTasks}</div>
+                <div>{selectedCategory.spech.unfinishedTasks}</div>
+                <div>{selectedCategory.spech.actualHoursWorked}</div>
+                <div>{selectedCategory.spech.plannedHours}</div>
+                <div className="max-w-[60px] h-[20px] overflow-hidden">{selectedCategory.spech.fastestTask}</div>
+                <div className="max-w-[60px] h-[20px] overflow-hidden">{selectedCategory.spech.latestTask}</div>
+                <div>{selectedCategory.spech.lateTasksCount}</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div>}
+
     </div>
   );
 }

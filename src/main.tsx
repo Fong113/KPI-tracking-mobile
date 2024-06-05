@@ -12,10 +12,10 @@ import "./styles/plugin.css"
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <TaskProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </TaskProvider>
+      <TaskProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </TaskProvider>
   </React.StrictMode>,
 )
