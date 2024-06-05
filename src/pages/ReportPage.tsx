@@ -125,6 +125,7 @@ export default function ReportPage() {
     <div className="mt-5">
       <div className="flex justify-around flex-row mb-5">
         <Select
+          className="ant-select"
           defaultValue={selectedCategory.name}
           style={{ width: 120 }}
           onChange={handleChange}

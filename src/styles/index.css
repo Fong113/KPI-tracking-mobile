@@ -13,3 +13,6 @@ html{
   font-size: 14px;
 }
 
+.ant-select{
+  @apply text-base; /* Điều này tương ứng với font-size: 16px */
+}
