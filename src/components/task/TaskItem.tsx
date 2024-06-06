@@ -33,10 +33,10 @@ export default function TaskItem(
     return (
         <div className={`flex flex-col gap-3 p-3 ${status === "done" ? "bg-blue-100" : "bg-red-100"} rounded-lg`}>
             <div className="flex flex-row justify-between items-center">
-                <div className="text-[14px] h-[18px] max-w-[105px] overflow-hidden text-ellipsis whitespace-nowrap">{name}</div>
+                <div className="text-[14px] h-[18px] max-w-[105px] overflow-hidden text-ellipsis whitespace-nowrap text-[#000]">{name}</div>
                 <div className="text-[14px] h-[18px] overflow-hidden">{chuyenDoiNgayThang(date)}</div>
             </div>
-            <div className={`flex text-[12px] items-center w-fit px-[4px] rounded-md ${status == "done" ? "bg-blue-400" : "bg-red-400"}`}>
+            <div className={`flex text-[12px] items-center w-fit px-[4px] text-[#ffff] rounded-md ${status == "done" ? "bg-blue-400" : "bg-red-400"}`}>
                 {status === "done" ? "Đã hoàn thành" : "Chưa hoàn thành"}
             </div>
             <div className="flex justify-between">

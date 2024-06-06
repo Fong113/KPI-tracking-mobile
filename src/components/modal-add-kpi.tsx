@@ -1,4 +1,5 @@
-import { Modal, Input, DatePicker, Button } from 'antd';
+import { Modal, Input, DatePicker } from 'antd';
+import { Button } from './ui/button';
 // import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -9,11 +10,16 @@ type KPIModal = {
 export default function AddKPIModal({open,setOpen} : KPIModal ) {
 
   // const [open, setOpen] = useState(false);
+  const dateFormat = "DD/MM/YYYY";
 
 
-  const handleCloseModal = () => {
+  const handleAddKPI = () => {
     toast.success("Thêm KPI thành công")
     setOpen(false);
+  }
+
+  const handleCloseModal = () => {
+    setOpen(false)
   }
   return (
     <Modal
@@ -24,22 +30,22 @@ export default function AddKPIModal({open,setOpen} : KPIModal ) {
       onCancel={handleCloseModal}
       className="flex flex-col gap-[20px]"
     >
-      <div className="flex flex-col mt-[30px] my-[20px] gap-[20px]">
-        <div className="flex flex-col gap-2">
-          <span className="text-xl font-medium">Tên KPI</span>
+      <div className="flex flex-col mt-[30px] items-center my-[20px] gap-[20px]">
+        <div className="flex flex-col gap-2 self-start w-full">
+          <span className="text-2xl font-semibold">Tên KPI</span>
           <Input placeholder="Nhập tên KPI" />
         </div>
         <div className="flex flex-row gap-3">
           <div>
-            <DatePicker inputReadOnly placeholder="Bắt đầu" />
+            <DatePicker inputReadOnly placeholder="Bắt đầu" format={dateFormat} />
           </div>
           <div>
-            <DatePicker inputReadOnly placeholder="Kết thúc" />
+            <DatePicker inputReadOnly placeholder="Kết thúc" format={dateFormat}  />
           </div>
 
         </div>
 
-        <Button type="primary" onClick={handleCloseModal}>Thêm KPI</Button>
+        <Button type="submit" className='text-xl  text-white font-semibold bg-blue-500' onClick={handleAddKPI}>Thêm KPI</Button>
       </div>
 
     </Modal>

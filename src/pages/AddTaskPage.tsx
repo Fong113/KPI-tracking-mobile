@@ -1,12 +1,12 @@
 import { PlusOutlined } from "@ant-design/icons";
 import {
-  Button,
   DatePicker,
   Form,
   Input,
   Select,
   TimePicker,
 } from "antd";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -95,8 +95,8 @@ export default function AddTaskPage() {
           label={
             <div className="flex flex-row item items-center justify-between w-full">
               <span>KPI</span>
-              <Button onClick={addKPI} icon={<PlusOutlined />}>
-                Thêm KPI
+              <Button className="w-25 h-7"  onClick={addKPI}>
+              <PlusOutlined />
               </Button>
             </div>
           }
@@ -117,15 +117,14 @@ export default function AddTaskPage() {
           label="Ghi chú"
           // rules={[{ required: true, message: "Vui lòng nhập mô tả, ghi chú" }]}
         >
-          <Textarea className="w-full" placeholder="Ghi chú" />
+          <Textarea className="w-full" />
         </Form.Item>
         <Form.Item className="flex justify-center items-center">
           <Button
-            type="primary"
-            htmlType="submit"
-            className="items-center flex p-2"
+            type="submit"
+            className="items-center flex p-2 text-xl text-white bg-blue-500"
           >
-            <span className="text-xl">Lưu nhiệm vụ</span>
+            Lưu nhiệm vụ
           </Button>
         </Form.Item>
       </Form>

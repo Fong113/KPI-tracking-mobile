@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+
+
 interface Category {
   id: string;
   name: string;
@@ -21,6 +23,7 @@ interface Task {
   number_file: number;
   category: string;
   description: string
+  timeDone?: string 
 }
 
 interface TaskContextProps {
@@ -118,20 +121,21 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
     {
       id: "1",
       name: "Học tiếng Anh",
-      status: "pending",
+      status: "done",
       date: "01/06/2024",
       timeStart: "09:00",
       timeEnd: "10:30",
       place: "Nhà riêng",
       number_file: 1,
       category: "Study",
-      description: "Học từ vựng và ngữ pháp"
+      description: "Học từ vựng và ngữ pháp",
+      timeDone: '01:30'
     },
     {
       id: "2",
       name: "Lập trình React",
       status: "done",
-      date: "02/06/2024",
+      date: "06/06/2024",
       timeStart: "14:00",
       timeEnd: "16:00",
       place: "Văn phòng",
@@ -143,7 +147,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       id: "3",
       name: "Chạy bộ",
       status: "pending",
-      date: "03/06/2024",
+      date: "06/06/2024",
       timeStart: "06:00",
       timeEnd: "07:00",
       place: "Công viên",

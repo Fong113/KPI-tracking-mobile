@@ -61,7 +61,9 @@ const MenuLeft = ({ open, setOpen }: Props) => {
   const onClose = () => {
     setOpen(false);
   };
-
+  const handleLogout =() => {
+    navigate('/login')
+  }
   return (
     <Drawer
       style={{ padding: 0 }}
@@ -86,7 +88,7 @@ const MenuLeft = ({ open, setOpen }: Props) => {
             mode="inline"
             items={items}
           />
-          <div className=" text-red-500 pl-9 flex items-center gap-3 text-xl font-medium cursor-pointer hover:bg-slate-100 p-3 rounded-xl">
+          <div onClick={handleLogout} className=" text-red-500 pl-9 flex items-center gap-3 text-xl font-medium cursor-pointer hover:bg-slate-100 p-3 rounded-xl">
             <LogoutOutlined /> <span>Đăng xuất</span>
           </div>
         </div>

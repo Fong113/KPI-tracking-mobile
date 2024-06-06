@@ -5,7 +5,7 @@ import './mainlayout.css'
 import AddKPIModal from "../modal-add-kpi";
 import { FloatButton,  } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFile, faLayerGroup, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardList, faLayerGroup, faPlus } from '@fortawesome/free-solid-svg-icons';
 type Prop = {
   children: any;
 }
@@ -33,7 +33,7 @@ export default function MainLayout({ children }: Prop) {
           icon={<FontAwesomeIcon icon={faPlus} />}
         >
           <FloatButton tooltip={"Thêm KPI"} onClick={addKPI} icon={<FontAwesomeIcon icon={faLayerGroup} />} />
-          <FloatButton tooltip={"Thêm nhiệm vụ"} onClick={handleAddTask} icon={<FontAwesomeIcon icon={faFile} />} />
+          <FloatButton tooltip={"Thêm nhiệm vụ"} onClick={handleAddTask} icon={<FontAwesomeIcon icon={faClipboardList} />} />
         </FloatButton.Group>
         <AddKPIModal open={open} setOpen={setOpen} />
         {children}

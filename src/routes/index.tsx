@@ -9,10 +9,16 @@ import TreePage from "@/pages/TreePage";
 import TaskInfo from "@/components/task/infoTask";
 import AddTaskPage from "@/pages/AddTaskPage";
 import CommentPage from "@/pages/CommentPage";
+import Login from "@/components/auth/login";
+import Signup from "@/components/auth/signup";
+
 export default function AllRouter(){
   return (
     <Routes>
-    <Route path="/" element={<Navigate to={'/home'} />} />
+    <Route path="/" element={<Navigate to={'/login'} />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+
     <Route path="/home" element={<MainLayout children={<HomePage />} />} />
     <Route path="/report" element={<MainLayout children={<ReportPage />} />} />
     <Route path="/todo" element={<MainLayout children={<TodoPage />} />} />
