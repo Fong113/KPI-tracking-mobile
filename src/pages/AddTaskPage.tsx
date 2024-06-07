@@ -24,8 +24,9 @@ const timeFormat = "HH:mm";
 
 export default function AddTaskPage() {
   const navigate = useNavigate();
-  const { setAllTask, allTask } = useTaskContext();
+  const { setAllTask, allTask, allCategory } = useTaskContext();
   const [open, setOpen] = useState(false);
+  const optionsSelect = allCategory.map(category => ({ value: category.name, label: category.name }))
 
   const [form] = Form.useForm();
 
@@ -104,10 +105,8 @@ export default function AddTaskPage() {
             { required: true, message: "Vui lòng chọn KPI cho nhiệm vụ" },
           ]}
         >
-          <Select placeholder="Chọn KPI cho nhiệm vụ">
-            <Select.Option value="IT">IT</Select.Option>
-            <Select.Option value="UX-UI">UX-UI</Select.Option>
-            <Select.Option value="Japanese">Tiếng Nhật</Select.Option>
+          <Select placeholder="Chọn KPI cho nhiệm vụ" options={optionsSelect}>
+            
           </Select>
         </Form.Item>
 

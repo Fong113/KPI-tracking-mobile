@@ -105,13 +105,13 @@ export default function ReportPage() {
     datasets: [
       {
         label: "Thời gian dự kiến",
-        data: labelsLine.map(() => getRandomNumber(20, 100)),
+        data: labelsLine.map(() => getRandomNumber(0, 24)),
         borderColor: "#4EB9EA",
         backgroundColor: "#4EB9EA",
       },
       {
         label: "Thời gian thực tế",
-        data: labelsLine.map(() => getRandomNumber(20, 100)),
+        data: labelsLine.map(() => getRandomNumber(0, 24)),
         borderColor: "#116783",
         backgroundColor: "#116783",
       },

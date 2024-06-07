@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 import {  Modal, Checkbox } from 'antd';
 import type { CheckboxProps } from 'antd';
-
+// import { useTaskContext } from '@/contexts/taskContext';
 const onChange: CheckboxProps['onChange'] = (e) => {
   console.log(`checked = ${e.target.checked}`);
 };
@@ -16,6 +16,7 @@ const ModelTask = ({ isModalOpen, setIsModalOpen }: Props) => {
   // const handleOk = () => {
   //   setIsModalOpen(false);
   // };
+  // const {allTask} = useTaskContext()
 
   const handleCancel = () => {
     setIsModalOpen(false);

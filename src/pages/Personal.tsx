@@ -12,7 +12,7 @@ interface InputProps {
 type Props = {};
 export const InputProfile = ({ label, defaultValue }: InputProps) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col">
       <Label className="text-xl font-medium">{label}</Label>
       <Input defaultValue={defaultValue} className="" />
     </div>
@@ -94,8 +94,8 @@ export default function Profile({ }: Props) {
   return (
     <>
       <div className="flex flex-col m-w-[100%] ">
-        <div className="flex flex-col gap-[39px]">
-          <div className="flex flex-row gap-[27px] mt-[20px]">
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-row gap-[27px]">
             <p className="text-blue-500 ml-5 text-2xl font-semibold">
               Thiết lập tài khoản
             </p>
@@ -137,7 +137,7 @@ export default function Profile({ }: Props) {
                     </div>
                   </div>
                   <div className="info flex flex-col gap-[31px]">
-                    <div className="flex flex-col justify-center gap-7 mt-[30px]">
+                    <div className="flex flex-col justify-center gap-4 mt-[30px]">
                       <InputProfile
                         label="Email"
                         defaultValue="test@gmail.com"

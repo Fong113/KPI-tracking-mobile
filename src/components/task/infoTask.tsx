@@ -1,4 +1,4 @@
-import { Button, TimePicker, Select, Form, Input, Dropdown, Space, Popconfirm, DatePicker } from "antd";
+import {  TimePicker, Select, Form, Input, Dropdown, Space, Popconfirm, DatePicker } from "antd";
 import dayjs from 'dayjs';
 import BellIcon from "@/assets/icons/bell";
 import DownIcon from "@/assets/icons/down";
@@ -13,7 +13,7 @@ import type { MenuProps } from 'antd';
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import CalcTimeDone from "@/utils/CalcTimeDone";
 const dateFormat = 'DD/MM/YYYY';
-
+import { Button } from "../ui/button";
 const optionsSelect = [
   { value: 'done', label: 'Đã hoàn thành' },
   { value: 'pending', label: 'Chưa hoàn thành' },
@@ -145,8 +145,8 @@ export default function TaskInfo() {
           <Form.Item name="description" label="Ghi chú">
             <Textarea className="w-full" />
           </Form.Item>
-          <Form.Item className="items-center justify-center flex">
-            <Button type="primary" htmlType="submit"><span className="text-xl">Lưu thay đổi</span></Button>
+          <Form.Item className="items-center justify-center text-white flex">
+            <Button type="submit" className="bg-blue-500" ><span className="text-xl">Lưu thay đổi</span></Button>
           </Form.Item>
         </Form>
       </div>
