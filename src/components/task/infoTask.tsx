@@ -71,11 +71,11 @@ export default function TaskInfo() {
   };
 
   const items: MenuProps['items'] = [
-    {
-      key: '1',
-      // danger: true,
-      label: 'Lưu trữ ( đang pt)',
-    },
+    // {
+    //   key: '1',
+    //   // danger: true,
+    //   label: 'Lưu trữ ( đang pt)',
+    // },
     {
       key: '2',
       danger: true,

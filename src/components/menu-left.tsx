@@ -13,8 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGear,
   faCircleInfo,
-  faBoxArchive,
-  faStar,
+  // faBoxArchive,
+  // faStar,
 } from "@fortawesome/free-solid-svg-icons";
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -33,16 +33,16 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem(
-    "Có gắn dấu sao",
-    "/storage",
-    <FontAwesomeIcon style={{ fontSize: "unset" }} icon={faStar} />
-  ),
-  getItem(
-    "Lưu trữ",
-    "/storage",
-    <FontAwesomeIcon style={{ fontSize: "unset" }} icon={faBoxArchive} />
-  ),
+  // getItem(
+  //   "Có gắn dấu sao",
+  //   "/storage",
+  //   <FontAwesomeIcon style={{ fontSize: "unset" }} icon={faStar} />
+  // ),
+  // getItem(
+  //   "Lưu trữ",
+  //   "/storage",
+  //   <FontAwesomeIcon style={{ fontSize: "unset" }} icon={faBoxArchive} />
+  // ),
   getItem(
     "Trợ giúp",
     "/help",
