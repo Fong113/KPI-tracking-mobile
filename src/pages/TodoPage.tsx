@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import TaskItem from "@/components/task/TaskItem";
 import { Input, Pagination, Select } from "antd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useTaskContext } from "@/contexts/taskContext";
 import { Link } from "react-router-dom";
-
+type Task = any;
 export default function TodoPage() {
-  const [openSearch, setOpenSearch] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filterStatus, setFilterStatus] = useState('');
+  const [openSearch, setOpenSearch] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [filterStatus, setFilterStatus] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<string>(''); // New state for sorting
   const { allTask } = useTaskContext();
 
   const handleOpenSearch = () => {
@@ -21,7 +22,7 @@ export default function TodoPage() {
     setCurrentPage(page);
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
     setCurrentPage(1);
   };
@@ -31,12 +32,26 @@ export default function TodoPage() {
     setCurrentPage(1);
   };
 
+  const handleSortChange = (value: string) => {
+    setSortOrder(value);
+    setCurrentPage(1);
+  };
+
   const tasksPerPage = 10;
-  const filteredTasks = allTask.filter(task => {
-    const matchesSearch = task.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesStatus = filterStatus ? task.status === filterStatus : true;
-    return matchesSearch && matchesStatus;
-  });
+  const filteredTasks = allTask
+    .filter((task: Task) => {
+      const matchesSearch = task.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesStatus = filterStatus ? task.status === filterStatus : true;
+      return matchesSearch && matchesStatus;
+    })
+    .sort((a: Task, b: Task) => {
+      if (sortOrder === 'newest') {
+        return new Date(b.date.split('/').reverse().join('-')).getTime() - new Date(a.date.split('/').reverse().join('-')).getTime();
+      } else if (sortOrder === 'oldest') {
+        return new Date(a.date.split('/').reverse().join('-')).getTime() - new Date(b.date.split('/').reverse().join('-')).getTime();
+      }
+      return 0;
+    });
 
   const totalTasks = filteredTasks.length;
   const startIndex = (currentPage - 1) * tasksPerPage;
@@ -44,13 +59,13 @@ export default function TodoPage() {
   const currentTasks = filteredTasks.slice(startIndex, endIndex);
 
   return (
-    <div className="">
-      <div className="w-full text-[24px] text-center" onClick={handleOpenSearch}>
+    <div>
+      <div className="w-full text-[24px] text-center cursor-pointer" onClick={handleOpenSearch}>
         <FontAwesomeIcon icon={faMagnifyingGlass} size='xs' /> Tìm kiếm
       </div>
 
       {openSearch && (
-        <div className="flex flex-col mb-[80px] items-center w-full h-[40px] gap-[20px]">
+        <div className="flex flex-col mb-[120px] items-center w-full h-[40px] gap-[20px]">
           <div className="w-11/12">
             <Input 
               placeholder="Lọc theo tên" 
@@ -69,11 +84,21 @@ export default function TodoPage() {
             <Select.Option value="done">Đã hoàn thành</Select.Option>
             <Select.Option value="pending">Chưa hoàn thành</Select.Option>
           </Select>
+          <Select
+            className="w-11/12 h-[30px]" 
+            placeholder="Sắp xếp theo ngày"
+            value={sortOrder}
+            onChange={handleSortChange}
+          >
+            <Select.Option value="">Mặc định</Select.Option>
+            <Select.Option value="newest">Nhiệm vụ mới nhất</Select.Option>
+            <Select.Option value="oldest">Nhiệm vụ cũ nhất</Select.Option>
+          </Select>
         </div>
       )}
 
       <div className="flex flex-row flex-wrap gap-[10px] justify-between px-[20px] mt-[20px] mb-[40px]">
-        {currentTasks.map((task) => (
+        {currentTasks.map((task: Task) => (
           <Link className="w-[48%]" to={`/info-task/${task.id}`} key={task.id}>
             <TaskItem
               name={task.name}

@@ -9,7 +9,7 @@ type Props = {
 export default function TreeIcon({ 
   width = "33",
   height = "33",
-  stroke = '#8C8C8C',
+  stroke = '#666666',
 }: Props) {
   return (
     <svg  width={width} height={height} viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">

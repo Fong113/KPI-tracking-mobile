@@ -11,6 +11,7 @@ import AddTaskPage from "@/pages/AddTaskPage";
 import CommentPage from "@/pages/CommentPage";
 import Login from "@/components/auth/login";
 import Signup from "@/components/auth/signup";
+import CalendarPage from "@/pages/CalendarPage";
 
 export default function AllRouter(){
   return (
@@ -27,6 +28,7 @@ export default function AllRouter(){
     <Route path="/info-task/:id" element={<MainLayout children={<TaskInfo />} />} />
     <Route path="/add-task" element={<MainLayout children={<AddTaskPage />} />} />
     <Route path="/help" element={<MainLayout children={<CommentPage />} />} />
+    <Route path="/calendar" element={<MainLayout children={<CalendarPage />} />} />
     
     </Routes>
   )

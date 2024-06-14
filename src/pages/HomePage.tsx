@@ -4,6 +4,7 @@ import TodayTask from '@/components/task/today-task';
 import { Link } from 'react-router-dom';
 import { useTaskContext } from '@/contexts/taskContext';
 import { useEffect, useState } from 'react';
+// import KPICard from '@/components/kpi-card';
 import moment from 'moment';
 
 const twoColors: ProgressProps['strokeColor'] = {
@@ -84,6 +85,7 @@ export default function HomePage() {
           <div className='text-xl'>Cần thêm 40h nữa để trồng cây </div>
         </div>
       </div>
+      {/* <KPICard /> */}
     </div>
   );
 }

@@ -41,11 +41,11 @@ export default function Login() {
         <div className="flex justify-center gap-3 mt-2 items-center flex-col">
           <span>Hoặc đăng nhập bằng</span>
           <div className="gap-10 flex flex-row">
-            <FontAwesomeIcon icon={faGoogle} size="3x" />
-            <FontAwesomeIcon icon={faJira} size="3x"/>
+            <FontAwesomeIcon onClick={handleLogin} icon={faGoogle} size="3x" />
+            <FontAwesomeIcon  onClick={handleLogin} icon={faJira} size="3x"/>
           </div>
           <div>
-            <span>Bạn không có tài khoản? <span className="cursor-pointer font-bold">Đăng ký ngay</span></span>
+            <span>Bạn không có tài khoản? <span onClick={() => navigate('/signup')} className="cursor-pointer font-bold">Đăng ký ngay</span></span>
           </div>
         </div>
       </div>
