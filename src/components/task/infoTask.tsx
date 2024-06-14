@@ -61,7 +61,7 @@ export default function TaskInfo() {
   }
 
   const handlesubmit = (values: any) => {
-    console.log(values);
+    // console.log(values);
     
     const updatedTask = { ...selectedTask, ...values,date: values.date.format(dateFormat), timeStart: values.time[0].format(format), timeEnd: values.time[1].format(format) };
 

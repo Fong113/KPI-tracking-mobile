@@ -74,12 +74,12 @@ export default function ReportPage() {
     datasets: [
       {
         label: "Thời gian dự kiến",
-        data: labels.map(() => getRandomNumber(0, 24)),
+        data: labels.map(() => getRandomNumber(0, 16)),
         backgroundColor: "#4EB9EA",
       },
       {
         label: "Thời gian thực tế",
-        data: labels.map(() => getRandomNumber(0, 24)),
+        data: labels.map(() => getRandomNumber(0, 16)),
         backgroundColor: "#116783",
       },
     ],
@@ -105,13 +105,13 @@ export default function ReportPage() {
     datasets: [
       {
         label: "Thời gian dự kiến",
-        data: labelsLine.map(() => getRandomNumber(0, 24)),
+        data: labelsLine.map(() => getRandomNumber(0, 16)),
         borderColor: "#4EB9EA",
         backgroundColor: "#4EB9EA",
       },
       {
         label: "Thời gian thực tế",
-        data: labelsLine.map(() => getRandomNumber(0, 24)),
+        data: labelsLine.map(() => getRandomNumber(0, 16)),
         borderColor: "#116783",
         backgroundColor: "#116783",
       },

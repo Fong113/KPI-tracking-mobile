@@ -3,13 +3,13 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 
 interface Category {
-  id: string;
+  id?: string;
   name: string;
-  status: string;
+  status?: string;
   dateStart: string;
   dateEnd: string;
-  progress: string;
-  spech: {}
+  progress?: string;
+  spech?: {}
 }
 
 interface Task {

@@ -1,8 +1,8 @@
 import { Progress } from "antd"
 
-type KPICardProp = {
+// type KPICardProp = {
 
-}
+// }
 
 
 export default function KPICard() {
